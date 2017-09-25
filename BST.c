@@ -35,15 +35,9 @@ void insert(node **r,int num){
 		  *r=ptr;
 	  else{
 		   if(num<temp->data){
-			   if(temp->right==NULL)
-					temp->right=ptr;
-				else
 					insert(&temp->right,num);
 		   }
 		   else{
-				  if(temp->left==NULL)
-					temp->left=ptr;
-				  else
 					insert(&temp->left,num);
 		  }
 	}
@@ -74,36 +68,83 @@ int search_bst(node *r,int num){
 }
 }                                                                        
 
- void search_node(int **x,node *root,node **parent,node **xsucc,int num,int *f){                                      //x is number to be deleted
- 
- 
+ void search_node(int **x,node *root,node **parent,int num,int *f)                 //x is number to be deleted
+ {
+	  node *temp;
+	  temp=root;
+	  if(root==NULL)
+	      return;
+	  while(temp!=NULL){
+	        if(num==temp->data)
+	  {
+		   *f=1;
+		   *x=temp;
+		   return;
+	 }
+	 *parent=temp;
+	 if(num>temp->data)
+	       temp=temp->right;
+	 else
+	    temp=temp->left;
+    }	
  }
  
  void delete(node **r,int num){
           node *temp,*parent,*xsucc,*x;
           int f=0;
-          *parent=NULL;x=NULL;
+          parent=NULL;x=NULL;xsucc=NULL;
           temp=*r;
           search_node(x,temp,&parent,&xsucc,num,&f);
 			if(f==0){
 				 printf("\nThe element %d is not fount",x);
 				 return;
-			 }
+			 }//x has no child
 			 if(x->left==NULL && x->right==NULL)
 			 {
-			 }
-			 else if(x->left!=NULL)
-			 {
-			 }
-			 else if(x->right!=NULL)
-			 {
-			 }
-			 else if(x->left!=NULL && x->right!=NULL)
-			 {
+				 if(x->data>parent->data)
+					parent->right=NULL;
+				else
+				   parent->left=NULL;
 			 }
 			 
-				 
+			 //x has left child
+			 else if(x->left!=NULL  && x->right==NULL)
+			 {
+				 if(x->data>parent->data)
+					parent->right=x->left;
+				else
+				   parent->left=;x->left;
+			 }
+			 
+			 //x has right child
+			 else if(x->left==NULL && x->right!=NULL)
+			 {
+				 if(x->data>parent->data)
+					parent->right=x->right;
+				else
+				   parent->left=;x->right;
+			 }
+			 
+			 //x has both left and right child
+				 else if(x->left!=NULL && x->right!=NULL=)
+				 {
+					  parent=x;
+					  xsucc=x->right;
+					  while(x->left!=NULL)
+					  {    
+						   parent=xsucc;
+						   xsucc=xsucc->left;
+					 }
+					 if(xsucc->data>parent->data)
+					     parent->right=NULL;
+					 else
+					     parent->left=NULL;
+					 x->data=xsucc->data;
+					 x=xsucc;
+}free(x);
 }
+
+
 int main(){
 	  node *root=NULL;
 	  insert(&root,20);
