@@ -68,7 +68,7 @@ int search_bst(node *r,int num){
 }
 }                                                                        
 
- void search_node(int **x,node *root,node **parent,int num,int *f)                 //x is number to be deleted
+ void search_node(node **x,node *root,node **parent,int num,int *f)         
  {
 	  node *temp;
 	  temp=root;
@@ -94,9 +94,9 @@ int search_bst(node *r,int num){
           int f=0;
           parent=NULL;x=NULL;xsucc=NULL;
           temp=*r;
-          search_node(x,temp,&parent,&xsucc,num,&f);
+          search_node(&x,temp,&parent,num,&f);
 			if(f==0){
-				 printf("\nThe element %d is not fount",x);
+				 printf("\nThe element %d is not foun",num);
 				 return;
 			 }//x has no child
 			 if(x->left==NULL && x->right==NULL)
@@ -113,7 +113,7 @@ int search_bst(node *r,int num){
 				 if(x->data>parent->data)
 					parent->right=x->left;
 				else
-				   parent->left=;x->left;
+				   parent->left=x->left;
 			 }
 			 
 			 //x has right child
@@ -122,11 +122,11 @@ int search_bst(node *r,int num){
 				 if(x->data>parent->data)
 					parent->right=x->right;
 				else
-				   parent->left=;x->right;
+				   parent->left=x->right;
 			 }
 			 
 			 //x has both left and right child
-				 else if(x->left!=NULL && x->right!=NULL=)
+				 else if(x->left!=NULL && x->right!=NULL)
 				 {
 					  parent=x;
 					  xsucc=x->right;
@@ -146,16 +146,40 @@ int search_bst(node *r,int num){
 
 
 int main(){
+	  int c,a;
 	  node *root=NULL;
-	  insert(&root,20);
-	  insert(&root,10);
-	  insert(&root,35);
-      insert(&root,2);	  
-	  insert(&root,12);
-	  traverse_inorder(root);
+	  do{
+      printf("ENTER YOUR CHOICE:  \n");
+	  printf("\n1.INSERT\n2.DELETE\n3.DISPLAY\n4.EXIT\n");
+	  scanf("%d",&c);
+	  switch(c)
+	  {
+	    case 1: printf("ENTER THE NUMBER TO BE INSERTED: ");
+	            scanf("%d",&a);
+	            insert(&root,a);
+	            break;
+	    case 2: printf("ENTER THE NUMBER TO BE DELETED: ");
+	            scanf("%d",&a);
+	            delete(&root,a);
+	            break;
+	    case 3: traverse_inorder(root);
+	            break;
+	    case 4: exit(0);
+	            break;
+	    default: printf("INVALID INPUT");
+	             break;
+			 }
+			 }while(1);
+			 return 0;
+		 }
+	            
+	         
+	            
+	 /* traverse_inorder(root);
 	  if(search_bst(root,10)==1)
 	   printf("\nThe number is found");
 	   else
 	    printf("\nThe number is not found");
 	  return 0;
-}
+
+*/
