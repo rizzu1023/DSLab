@@ -58,8 +58,8 @@ void AddStudent(node **s)
 
 void searchStudent(node *s)
 {
-  int c,n=1;
-  char src[20];
+  int c,n=0;
+  char src[10];
   node *temp;
   temp=s;
 printf("\n\nEnter student ID: ");
@@ -69,14 +69,53 @@ while(temp!=NULL)
   c=strcmp(src,temp->ID);
   if(c==0)
 {
+  n=1;
   printf("\nName: %s",temp->name);
   printf("\n\nID: %s",temp->ID);
+}  
+ temp=temp->next;
+}
+  if(n==0)
+  printf("\nNO RECORD FOUND");
 }
 
- else printf("\nNO RECORD FOUND");  
- temp=temp->next;
 
-}}
+void delStudent(node **s)
+{
+	int n=0,c;
+     char src[10];
+	node *prev,*temp;
+	temp=*s;
+     printf("\n\nEnter Student ID: ");
+     scanf("%s",src);
+	
+	while(temp!=NULL)
+	{
+		  c=strcmp(temp->ID,src);
+            if(c==0)
+		{
+			n=1;
+			if(temp==*s)
+				*s=temp->next;
+			else	
+				prev->next=temp->next;
+			free(temp);
+			break;
+		}
+		else
+		{
+			prev=temp;
+			temp=temp->next;
+		}
+	}
+	
+	if(n==0)
+		printf("\nDATA NOT FOUND\n");
+	
+	
+	display(*s);
+}
+
 
 
 
@@ -90,7 +129,7 @@ int main()
   printf("----------------------------------------------------------------------------------------------\n");
 start=NULL;
 do{
-  printf("\n\n1.Add Student\n\n2.Search Student\n\n3.exit");
+  printf("\n\n1.Add Student\n\n2.Search Student\n\n3.Delete Student\n\n4.exit");
   printf("\n\n\tENTER YOUR CHOICE: "); 
   scanf("%d",&c);
   switch(c)
@@ -99,7 +138,9 @@ do{
             break;
     case 2: searchStudent(start);
             break;
-    case 3: exit(0);
+    case 3: delStudent(&start);
+            break;
+    case 4: exit(0);
             break;
     default: printf("invalid option");
 }
