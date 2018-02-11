@@ -46,7 +46,10 @@ def BinAdd(x,y):
 
         if carry !=0 : result = '1' + result
 
-        return result.zfill(maxlen)
+        l2=strTolist(result.zfill(maxlen))
+        if(len(l2)>4): 
+               return l2[1:]
+        return l2
 
 
 def twoComp(list1):
@@ -68,21 +71,19 @@ def booth(A,Q,Qn,M):
           a=listTostr(A)
           m=listTostr(M)
           
-          A1=BinAdd(a,m)
+          A=BinAdd(a,m)
           
-          A=strTolist(A1)
           
           A,Q,Qn=shift(A,Q)
           return A,Q,Qn
 
      elif(Q[-1]>Qn):
           print("A=A-M")
-          M=twoComp(M)
+          m=twoComp(M)
           a=listTostr(A)
+          m2=listTostr(m)
 
-          A1=BinAdd(a,M)
-
-          A=strTolist(A1)
+          A=BinAdd(a,m2)
 
           A,Q,Qn=shift(A,Q)
           return A,Q,Qn
