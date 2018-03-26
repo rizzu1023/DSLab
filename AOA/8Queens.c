@@ -2,8 +2,8 @@
 			 * TITLE: Prim's Algorithm
 			 * DESCRIPTION: To implement prim's algorithm using greedy method
 			 * DATE OF PERFORMANCE: 22-02-18
-			 * NAME: KHAN GULAM HAIDER
-			 * Roll No: 16CO26
+			 * NAME: MOHAMMED RIZWAN
+			 * Roll No: 16CO39
 			 */
 
 			#include<stdio.h>
