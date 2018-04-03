@@ -56,7 +56,7 @@ void prim(){
 			}
 		}
 		
-		/*Now i have got next vertex*/
+		/*Now i have got next vertex.*/
 		
 		tree[i][0]=k;
 		tree[i][1]=nr[k];
