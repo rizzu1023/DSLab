@@ -130,7 +130,7 @@
 
 			8	.	.	.	.	Q	.	.	.Press any key to continue...
 
-			------------------
+			-------------------
 			(program exited with code: 0)
 			Press return to continue
 			*/
