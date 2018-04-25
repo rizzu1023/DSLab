@@ -3,7 +3,7 @@
 //Roll No: 16CO39
 
 #include<stdio.h>
-
+ 
 int main()
 {
     int n,i,j,p[20],bt[20],wt[20],tat[20],min,temp;
