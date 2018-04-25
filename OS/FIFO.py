@@ -1,5 +1,6 @@
 count=0
 np=int(input("Enter no of pages: "))
+print("Enter pages no: ")
 page = list(map(int, input().rstrip().split()))
 
 nf=int(input("Enter frame size: "))
