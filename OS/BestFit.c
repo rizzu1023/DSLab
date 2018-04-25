@@ -50,7 +50,7 @@ int main()
 		for(i=1;i<=np && parray[i]!=0;i++)
 			printf("\n\t%d\t\t\t%d\t\t\t%d\t\t\t%d\t\t\t%d ",i,psize[i],parray[i],bsize[parray[i]],fragment[i]);
 		return 0;
-}
+} 
 	  
 	  
 	  
