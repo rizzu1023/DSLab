@@ -85,7 +85,7 @@ Block no	Size		Process no		 size
   2  		 15 		3  		          12
   3  		 42 		1  		          20
   4  		 45 		2  		          45
-  5  		 10 		Not Allocated
+  5  		 10 		Not Allocated 
 
 */  
 	  
@@ -93,7 +93,7 @@ Block no	Size		Process no		 size
 	  
 	  
 	  
-	  
+	   
 	  
 	  
 	  
